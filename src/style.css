@@ -1,0 +1,64 @@
+body {
+  font-family: "Noto Sans Georgian", sans-serif;
+}
+.body-container {
+  background-image: url(../images/sky.jpg);
+  background-size: cover;
+  max-width: 800px;
+  padding: 20px 25px;
+  margin: 0 auto;
+}
+
+p {
+  margin-bottom: 0;
+}
+form {
+  margin-bottom: 20px;
+}
+h4 {
+  color: #ff6100;
+}
+ul {
+  list-style: none;
+  color: #6643b5;
+  line-height: 30px;
+  background: rgba(74, 144, 226, 0.2);
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.current-city-data {
+  color: #6643b5;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.current-weather-image {
+  max-width: 100%;
+}
+.current-weather-description {
+  text-align: center;
+  color: #6643b5;
+  font-weight: 500;
+}
+.card {
+  height: 200px;
+  background: rgba(74, 144, 226, 0.1);
+}
+.card:hover {
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  background: rgba(74, 144, 226, 0.3);
+}
+.card-image {
+  font-size: 50px;
+  color: #73b1c1;
+}
+.card-day-temperature {
+  color: #6643b5;
+  font-weight: 600;
+  font-size: 20px;
+}
+.card-night-temperature {
+  color: #6643b5;
+}
