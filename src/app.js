@@ -108,3 +108,14 @@ function showWeatherData(response) {
   let dateElement = document.querySelector("#current-date-and-time");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
+
+function searchDefaultCity(city) {
+  let apiKey = "ef282473708576ee3e925f4f705e27c8";
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let units = "metric";
+  let apiUrl = `${apiEndpoint}?q=${city}&units=${units}&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(showWeatherData);
+}
+
+searchDefaultCity("kyiv");
