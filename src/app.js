@@ -1,5 +1,7 @@
 function formatDate(currentDate) {
-  let date = currentDate.getDate();
+  let now = new Date(currentDate);
+
+  let date = now.getDate();
 
   let months = [
     "Jan",
@@ -15,14 +17,14 @@ function formatDate(currentDate) {
     "Nov",
     "Dec",
   ];
-  let month = months[currentDate.getMonth()];
+  let month = months[now.getMonth()];
 
-  let year = currentDate.getFullYear();
-  let hours = currentDate.getHours();
+  let year = now.getFullYear();
+  let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = currentDate.getMinutes();
+  let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -36,14 +38,10 @@ function formatDate(currentDate) {
     "Saturday",
     "Sunday",
   ];
-  let day = days[currentDate.getDay()];
+  let day = days[now.getDay()];
 
   return `${date} ${month}, ${year}, ${day},  ${hours}:${minutes}`;
 }
-
-let currentDateTime = document.querySelector("#current-date-and-time");
-let now = new Date();
-currentDateTime.innerHTML = formatDate(now);
 
 function searchCity(event) {
   event.preventDefault();
@@ -55,7 +53,6 @@ function searchCity(event) {
   let apiUrl = `${apiEndpoint}?q=${city}&units=${units}&appid=${apiKey}`;
 
   axios.get(apiUrl).then(showWeatherData);
-  console.log(apiUrl);
 }
 
 let inputForm = document.querySelector("#search-form");
@@ -104,7 +101,10 @@ function showWeatherData(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
   feelsLikeElement.innerHTML = `Feels like: ${temperaturefeelling} ℃`;
 
-  let windSpeed = response.data.wind.speed;
+  let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
   windSpeedElement.innerHTML = `Wind speed: ${windSpeed} m/s`;
+
+  let dateElement = document.querySelector("#current-date-and-time");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
