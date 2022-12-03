@@ -44,8 +44,8 @@ ul {
   font-size: 10px;
 }
 
-.current-weather-image {
-  max-width: 100%;
+.current-weather-icon {
+  width: 100px;
 }
 .current-weather-description {
   text-align: center;
