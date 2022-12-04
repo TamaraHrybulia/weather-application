@@ -1,8 +1,9 @@
 body {
   font-family: "Noto Sans Georgian", sans-serif;
+  color: #fff;
 }
 .container {
-  background-image: url(../images/sky.jpg);
+  background-image: url(../images/dark-sky.jpg);
   background-size: cover;
   max-width: 100%;
 }
@@ -14,7 +15,7 @@ body {
 }
 .main-display,
 .weather-forecast {
-  background-color: rgba(74, 74, 74, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   margin: 0 auto 20px;
   padding: 20px;
   border-radius: 5px;
