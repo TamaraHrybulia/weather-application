@@ -31,25 +31,23 @@
     <h1></h1>
 <p id="current-date-and-time">  </p>
     <div class="row">
-        <div class="col-md-3 current-city-data">
+        <div class="col-3 current-city-icon">
+                   <img src="" alt="" class="current-weather-icon" id="main-icon">
+<div class="current-weather-description" id="current-weather-description"> partly cloudy </div>
+        </div>
+        <div class="col-3 current-city-temperature-block"> 
   <span class="current-temperature" id="current-temperature"></span>
    <span class="units">
       <a href="#" id="celsius-link" class="active">℃</a> | 
      <a href="#" id="fahrenheit-link">℉</a>
   </span>
-
-        </div>
-       <div class="col-md-5 mt-0">
-<img src="images/sun-clouds.png" alt="sun and clouds" class="current-weather-icon" id="main-icon">
-<div class="current-weather-description" id="current-weather-description"> partly cloudy </div>   
-       </div>
- <div class="col-md-3 pl-1">
+</div>  
+             
+ <div class="col-4 discription-block">
    <ul>
-    <li id="humidity">Humidity: 70%</li>
-    <li id="wind-speed">Wind speed: 18 m/s</li>
-    <li id="sunrise">Sunrise: 08:10</li>
-    <li id="sunset">Sunset: 18:30</li>
-    <li id="feels-like">Feels like: 8<span class="feels-like-units">℃</span></li>
+    <li>💧 Humidity: <span id="humidity"></span>%</li>
+    <li>💨 Wind speed: <span id="wind-speed"></span> km/h</li>
+        <li>🌡 Feels like: <span id="feels-like"></span><span class="feels-like-units">℃</span></li>
    </ul>
  </div>
     </div>

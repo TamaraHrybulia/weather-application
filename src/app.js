@@ -91,15 +91,15 @@ function showWeatherData(response) {
 
   let humidity = response.data.temperature.humidity;
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `Humidity: ${humidity}%`;
+  humidityElement.innerHTML = `${humidity}`;
 
   let temperaturefeelling = Math.round(response.data.temperature.feels_like);
   let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = `Feels like: ${temperaturefeelling} ℃`;
+  feelsLikeElement.innerHTML = `${temperaturefeelling}`;
 
   let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
-  windSpeedElement.innerHTML = `Wind speed: ${windSpeed} m/s`;
+  windSpeedElement.innerHTML = `${windSpeed}`;
 
   let dateElement = document.querySelector("#current-date-and-time");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
@@ -111,6 +111,7 @@ function showWeatherData(response) {
     `
   );
   mainIconElement.setAttribute("alt", response.data.condition.description);
+  mainIconElement.style.width = "150px";
 }
 
 function displayCelsiusTemperature(event) {

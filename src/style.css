@@ -20,6 +20,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 h1 {
   font-size: 25px;
@@ -29,43 +30,48 @@ h1 {
 form {
   margin-bottom: 20px;
 }
+p {
+  margin-bottom: 0;
+}
+.current-weather-description {
+  text-align: center;
+  font-weight: 300;
+}
+.current-temperature {
+  font-size: 80px;
+  text-align: center;
+}
+.current-city-temperature-block {
+  padding: 20px 0;
+}
+.units {
+  position: relative;
+  top: -50px;
+  font-size: 20px;
+}
+.discription-block {
+  padding: 20px 0;
+}
 h4 {
   color: #ff6100;
 }
 ul {
   list-style: none;
-  color: #6643b5;
   line-height: 30px;
-  background: rgba(74, 144, 226, 0.2);
-  border-radius: 10px;
   padding-left: 30px;
   padding-bottom: 20px;
   padding-top: 20px;
 }
 .current-city-data {
   color: #fff;
-  margin-left: 20px;
-  margin-top: 20px;
 }
-.units {
-  position: relative;
-  top: -10px;
-  font-size: 20px;
-}
+
 .feels-like-units {
   position: relative;
   top: -5px;
   font-size: 10px;
 }
 
-.current-weather-icon {
-  width: 100px;
-}
-.current-weather-description {
-  text-align: center;
-  color: #6643b5;
-  font-weight: 500;
-}
 .card {
   height: 200px;
   background: rgba(74, 144, 226, 0.1);
@@ -90,6 +96,6 @@ ul {
 
 .active {
   cursor: default;
-  color: #6643b5;
+  color: #fff;
   text-decoration: none;
 }
