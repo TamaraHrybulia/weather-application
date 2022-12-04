@@ -44,10 +44,10 @@ function formatDate(currentDate) {
 }
 
 function searchCity(city) {
-  let apiKey = "ef282473708576ee3e925f4f705e27c8";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiKey = "30f3621d44ta8b790e7433b8ef5bf7ao";
+  let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
   let units = "metric";
-  let apiUrl = `${apiEndpoint}?q=${city}&units=${units}&appid=${apiKey}`;
+  let apiUrl = `${apiEndpoint}?query=${city}&key=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeatherData);
 }
@@ -63,40 +63,37 @@ function getCurrentPosition() {
 }
 
 function searchCurrentCity(position) {
-  let apiKey = "ef282473708576ee3e925f4f705e27c8";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
+  let apiKey = "30f3621d44ta8b790e7433b8ef5bf7ao";
+  let apiEndpoint = "https://api.shecodes.io/weather/v1/current";
   let units = "metric";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+  let apiUrl = `${apiEndpoint}?lon=${lon}&lat=${lat}&units=${units}&key=${apiKey}`;
 
   axios.get(apiUrl).then(showWeatherData);
-  console.log(apiUrl);
 }
 
 function showWeatherData(response) {
-  console.log(response.data);
-
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.name}`;
+  h1.innerHTML = `${response.data.city}`;
 
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.temperature.current;
 
   let temperature = Math.round(celsiusTemperature);
   let temperatureElement = document.querySelector("#current-temperature");
   temperatureElement.innerHTML = `${temperature}`;
 
-  let description = response.data.weather[0].description;
+  let description = response.data.condition.description;
   let descriptionElement = document.querySelector(
     "#current-weather-description"
   );
   descriptionElement.innerHTML = `${description}`;
 
-  let humidity = response.data.main.humidity;
+  let humidity = response.data.temperature.humidity;
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
 
-  let temperaturefeelling = Math.round(response.data.main.feels_like);
+  let temperaturefeelling = Math.round(response.data.temperature.feels_like);
   let feelsLikeElement = document.querySelector("#feels-like");
   feelsLikeElement.innerHTML = `Feels like: ${temperaturefeelling} ℃`;
 
@@ -105,14 +102,15 @@ function showWeatherData(response) {
   windSpeedElement.innerHTML = `Wind speed: ${windSpeed} m/s`;
 
   let dateElement = document.querySelector("#current-date-and-time");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
 
   let mainIconElement = document.querySelector("#main-icon");
   mainIconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png
+    `
   );
-  mainIconElement.setAttribute("alt", response.data.weather[0].description);
+  mainIconElement.setAttribute("alt", response.data.condition.description);
 }
 
 function displayCelsiusTemperature(event) {
