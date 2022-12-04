@@ -21,10 +21,11 @@ body {
   border-radius: 5px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-p {
-  margin-bottom: 0;
+h1 {
+  font-size: 25px;
+  font-weight: 300;
 }
+
 form {
   margin-bottom: 20px;
 }

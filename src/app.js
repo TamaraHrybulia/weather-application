@@ -75,7 +75,7 @@ function searchCurrentCity(position) {
 
 function showWeatherData(response) {
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.city}`;
+  h1.innerHTML = `${response.data.city}, ${response.data.country}`;
 
   celsiusTemperature = response.data.temperature.current;
 
