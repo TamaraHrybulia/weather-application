@@ -73,3 +73,9 @@ ul {
 .card-night-temperature {
   color: #6643b5;
 }
+
+.active {
+  cursor: default;
+  color: #6643b5;
+  text-decoration: none;
+}

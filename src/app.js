@@ -121,12 +121,16 @@ function displayCelsiusTemperature(event) {
     "#current-temperature"
   );
   celsiusTemperatureElement.innerHTML = Math.round(celsiusTemperature);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   let fahrenheitElement = document.querySelector("#current-temperature");
   fahrenheitElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 let celsiusLink = document.querySelector("#celsius-link");
