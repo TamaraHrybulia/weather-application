@@ -58,12 +58,6 @@ function handleSubmit(event) {
   searchCity(searchinput.value);
 }
 
-let inputForm = document.querySelector("#search-form");
-inputForm.addEventListener("submit", handleSubmit);
-
-let currentCityButton = document.querySelector("#current-city-button");
-currentCityButton.addEventListener("click", getCurrentPosition);
-
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(searchCurrentCity);
 }
@@ -86,9 +80,11 @@ function showWeatherData(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${response.data.name}`;
 
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+
+  let temperature = Math.round(celsiusTemperature);
   let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = `${temperature} ℃`;
+  temperatureElement.innerHTML = `${temperature}`;
 
   let description = response.data.weather[0].description;
   let descriptionElement = document.querySelector(
@@ -118,5 +114,33 @@ function showWeatherData(response) {
   );
   mainIconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperatureElement = document.querySelector(
+    "#current-temperature"
+  );
+  celsiusTemperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitElement = document.querySelector("#current-temperature");
+  fahrenheitElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+}
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let inputForm = document.querySelector("#search-form");
+inputForm.addEventListener("submit", handleSubmit);
+
+let currentCityButton = document.querySelector("#current-city-button");
+currentCityButton.addEventListener("click", getCurrentPosition);
+
+let celsiusTemperature = null;
 
 searchCity("Kyiv");
