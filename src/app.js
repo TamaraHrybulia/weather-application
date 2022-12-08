@@ -1,6 +1,5 @@
 function formatDate(currentDate) {
   let now = new Date(currentDate);
-
   let date = now.getDate();
 
   let months = [
@@ -18,7 +17,6 @@ function formatDate(currentDate) {
     "Dec",
   ];
   let month = months[now.getMonth()];
-
   let year = now.getFullYear();
   let hours = now.getHours();
   if (hours < 10) {
@@ -75,36 +73,27 @@ function searchCurrentCity(position) {
 
 function showWeatherData(response) {
   let h1 = document.querySelector("h1");
-  h1.innerHTML = `${response.data.city}, ${response.data.country}`;
-
-  celsiusTemperature = response.data.temperature.current;
-
-  let temperature = Math.round(celsiusTemperature);
   let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = `${temperature}`;
-
-  let description = response.data.condition.description;
   let descriptionElement = document.querySelector(
     "#current-weather-description"
   );
-  descriptionElement.innerHTML = `${description}`;
-
-  let humidity = response.data.temperature.humidity;
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `${humidity}`;
-
-  let temperaturefeelling = Math.round(response.data.temperature.feels_like);
   let feelsLikeElement = document.querySelector("#feels-like");
-  feelsLikeElement.innerHTML = `${temperaturefeelling}`;
-
-  let windSpeed = Math.round(response.data.wind.speed);
   let windSpeedElement = document.querySelector("#wind-speed");
-  windSpeedElement.innerHTML = `${windSpeed}`;
-
   let dateElement = document.querySelector("#current-date-and-time");
-  dateElement.innerHTML = formatDate(response.data.time * 1000);
-
   let mainIconElement = document.querySelector("#main-icon");
+
+  celsiusTemperature = response.data.temperature.current;
+
+  h1.innerHTML = `${response.data.city}, ${response.data.country}`;
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}`;
+  descriptionElement.innerHTML = `${response.data.condition.description}`;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}`;
+  feelsLikeElement.innerHTML = `${Math.round(
+    response.data.temperature.feels_like
+  )}`;
+  windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)}`;
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
   mainIconElement.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png
@@ -132,13 +121,13 @@ function displayForecast(response) {
 
   let forecast = response.data.daily;
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row row-cols-5">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6 && index > 0) {
       forecastHTML =
         forecastHTML +
-        ` 
-        <div class="col mt-5 mb-5 w-100">
+        `
+        <div class="col mt-5 mb-5">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">${formatForecastDay(
@@ -159,6 +148,7 @@ function displayForecast(response) {
           `;
     }
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }

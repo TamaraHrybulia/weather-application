@@ -2,7 +2,7 @@ body {
   font-family: "Noto Sans Georgian", sans-serif;
   color: #fff;
 }
-.container {
+.main {
   background-image: url(../images/dark-sky.jpg);
   background-size: cover;
   max-width: 100%;
@@ -86,12 +86,12 @@ ul {
   color: #73b1c1;
 }
 .card-day-temperature {
-  color: #6643b5;
+  color: #fff;
   font-weight: 600;
   font-size: 20px;
 }
 .card-night-temperature {
-  color: #6643b5;
+  color: #fff;
 }
 
 .active {
