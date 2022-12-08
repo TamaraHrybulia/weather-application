@@ -130,18 +130,19 @@ function displayForecast(response) {
         <div class="col mt-5 mb-5">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">${formatForecastDay(
+                <h2 class="card-title">${formatForecastDay(
                   forecastDay.time
-                )}</h4>
-                <p class="card-image"> <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-                  forecastDay.condition.icon
-                }.png" alt=""  /> </p>
-                <p class="card-day-temperature"> ${Math.round(
+                )}</h2>
+               <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                 forecastDay.condition.icon
+               }.png" alt="${forecastDay.condition.description}" width = "80"/> 
+                <p class="forecast-temperatures"> <span class="card-day-temperature"> ${Math.round(
                   forecastDay.temperature.maximum
-                )}°</p>
-                <p class="card-night-temperature">${Math.round(
-                  forecastDay.temperature.minimum
-                )}°</p>
+                )}°</span>               
+                   <span class="card-night-temperature">${Math.round(
+                     forecastDay.temperature.minimum
+                   )}°</span>
+                </p>
               </div>
             </div>
           </div>

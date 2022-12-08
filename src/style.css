@@ -20,19 +20,24 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
-  color: #fff;
 }
-h1 {
-  font-size: 25px;
-  font-weight: 300;
+
+.weather-forecast {
+  padding: 20px 20px 10px;
 }
 
 form {
   margin-bottom: 20px;
 }
-p {
-  margin-bottom: 0;
+
+h1 {
+  font-size: 25px;
+  font-weight: 300;
 }
+p {
+  margin: 0;
+}
+
 .current-weather-description {
   text-align: center;
   font-weight: 300;
@@ -41,20 +46,17 @@ p {
   font-size: 80px;
   text-align: center;
 }
-.current-city-temperature-block {
+.current-city-temperature-block,
+.discription-block {
   padding: 20px 0;
 }
+
 .units {
   position: relative;
   top: -50px;
   font-size: 20px;
 }
-.discription-block {
-  padding: 20px 0;
-}
-h4 {
-  color: #ff6100;
-}
+
 ul {
   list-style: none;
   line-height: 30px;
@@ -62,14 +64,11 @@ ul {
   padding-bottom: 20px;
   padding-top: 20px;
 }
-.current-city-data {
-  color: #fff;
-}
 
 .feels-like-units {
   position: relative;
   top: -5px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .card {
@@ -81,21 +80,28 @@ ul {
   transition: all 200ms ease-in-out;
   background: rgba(74, 144, 226, 0.3);
 }
-.card-image {
-  font-size: 50px;
-  color: #73b1c1;
+
+h2 {
+  color: #ff6100;
+  font-size: 23px;
 }
-.card-day-temperature {
-  color: #fff;
-  font-weight: 600;
-  font-size: 20px;
+
+.forecast-temperatures {
+  margin: 5px;
+  font-size: 18px;
 }
+
 .card-night-temperature {
-  color: #fff;
+  opacity: 0.6;
 }
 
 .active {
   cursor: default;
   color: #fff;
   text-decoration: none;
+}
+
+footer {
+  font-weight: 300;
+  text-align: center;
 }
