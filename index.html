@@ -27,7 +27,7 @@
         <div class="main-display">
           <form id="search-form">
             <div class="row g-2">
-              <div class="col-6">
+              <div class="col-sm-6">
                 <input
                   type="text"
                   class="form-control"
@@ -36,7 +36,9 @@
                   autocomplete="off"
                 />
               </div>
-              <div class="col-6">
+              <div
+                class="d-flex justify-content-end col-sm-6 gap-2 justify-content-sm-start"
+              >
                 <button type="submit" class="btn btn-primary">search</button>
                 <button
                   type="button"
@@ -53,21 +55,31 @@
           <p id="current-date-and-time"></p>
 
           <div class="row">
-            <div class="col-3 current-city-icon">
-              <img src="" alt="" class="current-weather-icon" id="main-icon" />
-              <div
-                class="current-weather-description"
-                id="current-weather-description"
-              ></div>
+            <div class="col-8 col-sm-3 current-city-icon">
+              <div class="d-flex flex-column align-items-center">
+                <img
+                  src=""
+                  alt=""
+                  class="current-weather-icon img-fluid"
+                  id="main-icon"
+                />
+                <div
+                  class="current-weather-description"
+                  id="current-weather-description"
+                ></div>
+              </div>
             </div>
-            <div class="col-3 current-city-temperature-block">
+
+            <div class="col-3 col-sm-3 current-city-temperature-block">
               <span class="current-temperature" id="current-temperature"></span>
               <span class="units">
                 <a href="#" id="celsius-link" class="active">℃</a> |
                 <a href="#" id="fahrenheit-link">℉</a>
               </span>
             </div>
-            <div class="col-4 discription-block">
+            <div
+              class="description-block d-flex justify-content-center d-sm-block col-sm-6"
+            >
               <ul>
                 <li>💧 Humidity: <span id="humidity"></span>%</li>
                 <li>💨 Wind speed: <span id="wind-speed"></span> km/h</li>
@@ -79,7 +91,6 @@
             </div>
           </div>
         </div>
-
         <div class="weather-forecast">
           <div class="container text-center" id="forecast"></div>
         </div>

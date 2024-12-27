@@ -17,13 +17,16 @@ body {
 .weather-forecast {
   background-color: rgba(0, 0, 0, 0.5);
   margin: 0 auto 20px;
-  padding: 20px;
   border-radius: 5px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.main-display {
+  padding: 25px 25px 25px 20px;
+}
+
 .weather-forecast {
-  padding: 20px 20px 10px;
+  padding: 20px 20px 20px;
 }
 
 form {
@@ -47,7 +50,7 @@ p {
   text-align: center;
 }
 .current-city-temperature-block,
-.discription-block {
+.description-block {
   padding: 20px 0;
 }
 
@@ -60,7 +63,7 @@ p {
 ul {
   list-style: none;
   line-height: 30px;
-  padding-left: 30px;
+
   padding-bottom: 20px;
   padding-top: 20px;
 }
@@ -72,7 +75,6 @@ ul {
 }
 
 .card {
-  height: 200px;
   background: rgba(74, 144, 226, 0.1);
 }
 .card:hover {
@@ -104,4 +106,85 @@ h2 {
 footer {
   font-weight: 300;
   text-align: center;
+}
+
+@media (max-width: 721px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  ul {
+    padding-top: 0;
+  }
+
+  .weather-app,
+  .form-control,
+  .btn {
+    font-size: 14px;
+  }
+
+  .main-display {
+    padding: 25px 25px 0 20px;
+  }
+
+  .current-temperature {
+    font-size: 60px;
+  }
+
+  .units {
+    top: -35px;
+    font-size: 15px;
+  }
+
+  .forecast-temperatures {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 645px) {
+  .current-temperature {
+    font-size: 50px;
+  }
+
+  .units {
+    top: -30px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 610px) {
+  h2 {
+    font-size: 12px;
+  }
+  .forecast-temperatures {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  footer {
+    font-size: 12px;
+  }
+
+  .current-weather-description {
+    position: relative;
+    top: -30px;
+  }
+
+  .current-city-temperature-block {
+    padding: 40px 0;
+    position: relative;
+    left: -20px;
+  }
+  .description-block {
+    padding: 0;
+  }
+
+  .card-body {
+    padding: 10px 000;
+  }
 }

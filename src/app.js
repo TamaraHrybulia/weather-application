@@ -127,13 +127,13 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-        <div class="col mt-5 mb-5">
-            <div class="card">
+        <div class="col mt-md-4 mb-md-4 g-1 g-sm-3 g-md-4">
+            <div class="card ">
               <div class="card-body">
                 <h2 class="card-title">${formatForecastDay(
                   forecastDay.time
                 )}</h2>
-               <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+               <img class="img-fluid"  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
                  forecastDay.condition.icon
                }.png" alt="${forecastDay.condition.description}" width = "80"/> 
                 <p class="forecast-temperatures"> <span class="card-day-temperature"> ${Math.round(
